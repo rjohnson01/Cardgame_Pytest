@@ -2,6 +2,10 @@ from card_game.blueprint import Player, Herocard, Spellcard, Buffcard
 import random
 from card_game.deck import deck
 
+player = Player()                                                                   #Create the human player
+ai_player = Player()                                                                #Create the ai player
+discard_deck = []
+play_deck = []
 
 #Function to get the players input and play a selected card
 def player_card_selection():
@@ -92,10 +96,9 @@ def game_intro():
     return None
 
 
-if __name__ == "__main__":
-    player = Player()                                                                   #Create the human player
-    ai_player = Player()                                                                #Create the ai player
-    discard_deck = []                                                                   #Create the card discard deck
+#if __name__ == "__main__":
+def run_the_damn_thing():
+                                                                       #Create the card discard deck
 
     play_deck = build_play_deck()                                                       #Build the deck the players will use, populated with card objects                                                                        #Builds the empty discard deck
     player.hand = fill_players_hand(play_deck)                                          #Call the function to draw cards and put them into the player's hand
