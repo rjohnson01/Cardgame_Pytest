@@ -1,3 +1,3 @@
-from card_game.game import run_the_damn_thing
+from card_game.game import run_game
 
-run_the_damn_thing()
+run_game()

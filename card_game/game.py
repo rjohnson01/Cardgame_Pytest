@@ -97,7 +97,7 @@ def game_intro():
 
 
 #if __name__ == "__main__":
-def run_the_damn_thing():
+def run_game():
                                                                        #Create the card discard deck
 
     play_deck = build_play_deck()                                                       #Build the deck the players will use, populated with card objects                                                                        #Builds the empty discard deck
