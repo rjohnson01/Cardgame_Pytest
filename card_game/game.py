@@ -7,6 +7,7 @@ ai_player = Player()                                                            
 discard_deck = []
 play_deck = []
 
+
 #Function to get the players input and play a selected card
 def player_card_selection():
     player.play_random_card()
@@ -37,11 +38,12 @@ def build_play_deck():
     return build_deck
 
 #Function to automatically draw new card
-def draw_new_card():
-    if len(play_deck) == 0:
+def draw_new_card(deck_to_draw_card_from):
+    if len(deck_to_draw_card_from) == 0:
         print("Out of cards, game over")
         exit()
-    drawn_card = play_deck.pop(random.randrange(0, len(play_deck)))
+    drawn_card = deck_to_draw_card_from.pop(random.randrange(0, len(deck_to_draw_card_from)))
+    play_deck = deck_to_draw_card_from
 
     return drawn_card
 
@@ -96,10 +98,9 @@ def game_intro():
     return None
 
 
+
 #if __name__ == "__main__":
 def run_game():
-                                                                       #Create the card discard deck
-
     play_deck = build_play_deck()                                                       #Build the deck the players will use, populated with card objects                                                                        #Builds the empty discard deck
     player.hand = fill_players_hand(play_deck)                                          #Call the function to draw cards and put them into the player's hand
     ai_player.hand = fill_players_hand(play_deck)                                       #Call the function to draw cards and put them into the ai_player's hand
@@ -127,11 +128,11 @@ def run_game():
         if player.cards_in_play[0].health <= 0:
             del player.cards_in_play[0]
         
-        player_drawn_card = draw_new_card()                                               #player draws a new card
+        player_drawn_card = draw_new_card(play_deck)                                               #player draws a new card
         player.hand.append(player_drawn_card) 
                                                      #player adds new card to hand
         
-        ai_player_drawn_card = draw_new_card()                                              #ai_player draws a new card
+        ai_player_drawn_card = draw_new_card(play_deck)                                              #ai_player draws a new card
         ai_player.hand.append(ai_player_drawn_card)                                         #ai_player adds new card to hand
         
         print("Your current hand: ")
@@ -144,5 +145,4 @@ def run_game():
         print("---end of round---")
 
 
-#google introspection vs reflection in python
-#remember dirs
+
