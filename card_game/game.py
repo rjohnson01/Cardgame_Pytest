@@ -137,12 +137,11 @@ def run_game():
         
         print("Your current hand: ")
         display_player_hand(player.hand)
-        
-        #print("DEBUG - Player's new card is " + player_drawn_card.name)
-        #print("DEBUG - AI player new card is " + ai_player_drawn_card.name)
+
+
+        print("---end of round---")
 
         #import pdb; pdb.set_trace()
-        print("---end of round---")
 
 
 
