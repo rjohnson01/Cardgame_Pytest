@@ -12,44 +12,6 @@ def test_play_deck():
     return test_play_deck
 
 
-# testing that the play_deck contains 30 cards after the initial build
-@pytest.mark.deckbuild
-def test_build_play_deck_length(test_play_deck):
-    assert len(test_play_deck) == 30
-
-# testing that the correct number of hero cards are in the play_deck after the initial build
-@pytest.mark.deckbuild
-def test_hero_card_count(test_play_deck):
-    hero_card_count = 0
-
-    for cards in test_play_deck:
-        if cards.type == "hero":
-            hero_card_count = hero_card_count + 1
-
-    assert hero_card_count == 15
-
-# testing that the correct number of spell cards are in the play_deck after the initial build
-@pytest.mark.deckbuild
-def test_spell_card_count(test_play_deck):
-    spell_card_count = 0
-
-    for cards in test_play_deck:
-        if cards.type == "spell":
-            spell_card_count = spell_card_count + 1
-
-    assert spell_card_count == 12
-
-# testing that the correct number of buff cards are in the play_deck
-@pytest.mark.deckbuild
-def test_buff_card_count(test_play_deck):
-    buff_card_count = 0
-
-    for cards in test_play_deck:
-        if cards.type == "buff":
-            buff_card_count = buff_card_count + 1
-
-    assert buff_card_count == 3   
-
 # testing that the player's hand is being populated with the correct number of cards
 def test_fill_players_hand(test_play_deck):
     test_player_hand = fill_players_hand(test_play_deck)
@@ -64,7 +26,7 @@ def test_draw_new_card(test_play_deck):
     #assert drawn_card.name != ""
     assert drawn_card.name != "" and test_deck_cardcount > len(test_play_deck)
 
-# testing that player_card_selection is pulling cards out of the player hand
+# testing that player_card_selection is pulling a card out of the player hand
 def test_player_card_selection(test_play_deck):
     test_player = Player()
     test_player.hand = fill_players_hand(test_play_deck)
